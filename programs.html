@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Programs</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<button id="goTopBtn" title="Mergi sus">↑</button>
+<script>
+  const goTopBtn = document.getElementById("goTopBtn");
+
+    // Show button after scrolling down
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 200) {
+        goTopBtn.style.display = "block";
+      } else {
+        goTopBtn.style.display = "none";
+      }
+    });
+  
+    // Scroll to top smoothly when button is clicked
+    goTopBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  </script>
+
+<header class="navbar">
+            <h1 class="logo"><a href="index.html"><img src="images/afterschool logo.jpg" alt="After School logo"><span class="logo-text">Afterschool</span></a></h1>
+
+            <nav>
+                <a href="index.html">Acasă</a>
+                <a href="about.html">Despre noi</a>
+                <a href="programs.html">Taxe & Program</a>
+                <a href="contact.html">Contact</a>
+                <a href="https://www.facebook.com/profile.php?id=61569247984229" target="_blank" class="social-icon">f</a>
+                <a href="https://www.instagram.com/hristinaeducare?igsh=dzc1N3g0c3k5dG55" target="_blank" class="social-icon">📷</a>
+            </nav>
+        </header>
+
+ <section class="programs section-accent programs-fees">
+  <h2>Taxe & Program</h2>
+
+  <div class="program-box">
+    <p><strong>Taxa:</strong> 1000 lei/lună</p>
+    <p><strong>Program:</strong> 12:00 - 18:00</p>
+    <p><strong>Ora 12:</strong> Preluare copii de la școală</p>
+    <p><strong>Ora 13:</strong> Activități de relaxare</p>
+    <p><strong>Ora 14:</strong> Masă de prânz</p>
+    <p><strong>Ora 15:</strong> Teme</p>
+    <a href="contact.html" class="btn">Contact</a>
+  </div>
+</section>
+
+<section class="programs section-light programs-activities">
+  <h2>Programele Noastre</h2>
+
+  <div class="program-grid">
+    <div class="program-card">
+      <h3>Sprijin la Teme</h3>
+      <p>Ajutor ghidat pentru temele școlare și învățare.</p>
+    </div>
+
+    <div class="program-card">
+      <h3>Artă și Creativitate</h3>
+      <p>Desen, lucru manual și ateliere creative.</p>
+    </div>
+
+    <div class="program-card">
+      <h3>Sport și Mișcare</h3>
+      <p>Activități fizice pentru dezvoltarea sănătoasă.</p>
+    </div>
+
+    <div class="program-card">
+      <h3>Dezvoltare Personală</h3>
+      <p>Încredere, comunicare și lucrul în echipă.</p>
+    </div>
+  </div>
+  <div class="program-info">
+    <h3>Informații Importante</h3>
+    <p>Taxa se achită în perioada 1 și 10 ale lunii.</p>
+    <p>Activitățile extra se plătesc separat.</p>
+    <p>Puteți opta și pentru program în perioada vacanțelor.</p>
+    <p>Transportul este inclus în taxa lunară.</p>
+  </div>
+</section>
+<div id="cookie-banner" class="cookie-banner">
+  <p>Acest site folosește cookie-uri pentru a îmbunătăți experiența utilizatorului.
+    Continuând navigarea,ești de acord cu utilizarea cookie-urilor.
+  </p>
+  <button id="accept-cookies" class="btn">Accept</button>
+</div>
+<script>
+  const banner = document.getElementById("cookie-banner");
+  const button = document.getElementById("accept-cookies");
+
+  if(localStorage.getItem("cookiesAccepted")){
+    banner.style.display = "none";
+  }
+
+  button.addEventListener("click", () => {
+    localStorage.setItem("cookiesAccepted", "true");
+    banner.style.display = "none";
+  });
+</script>
+</body>
+</html>

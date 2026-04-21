@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<button id="goTopBtn" title="Mergi sus">↑</button>
+<script>
+  const goTopBtn = document.getElementById("goTopBtn");
+
+    // Show button after scrolling down
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 200) {
+        goTopBtn.style.display = "block";
+      } else {
+        goTopBtn.style.display = "none";
+      }
+    });
+  
+    // Scroll to top smoothly when button is clicked
+    goTopBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  </script>
+
+<header class="navbar">
+            <h1 class="logo"><a href="index.html"><img src="images/afterschool logo.jpg" alt="After School logo"><span class="logo-text">Afterschool</span></a></h1>
+
+            <nav>
+                <a href="index.html">Acasă</a>
+                <a href="about.html">Despre noi</a>
+                <a href="programs.html">Taxe & Program</a>
+                <a href="contact.html">Contact</a>
+                <a href="https://www.facebook.com/profile.php?id=61569247984229" target="_blank" class="social-icon">f</a>
+                <a href="https://www.instagram.com/hristinaeducare?igsh=dzc1N3g0c3k5dG55" target="_blank" class="social-icon">📷</a>
+            </nav>
+        </header>
+
+ <section class="contact contact-map">
+  <h2>Locație</h2>
+
+  <div class="map-wrapper">
+    <iframe
+      src="https://www.google.com/maps?q=Strada+Educației+10,+Timișoara&output=embed"
+      width="100%"
+      height="350"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </div>
+
+  <p>Adresă: Str. Educației nr.10, Timișoara</p>
+</section>
+
+<section class="contact contact-info">
+  <h2>Contact</h2>
+
+  <p>Email: contact@afterschool.ro</p>
+  <p>Telefon: +40 700 000 000</p>
+</section>
+
+<section class="contact contact-form-section">
+  <h2>Trimite un mesaj</h2>
+
+  <form
+    action="https://formspree.io/f/xojyvwob"
+    method="POST"
+    class="contact-form"
+  >
+    <input type="text" name="name" placeholder="Nume" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="tel" name="phone" placeholder="Telefon" required>
+
+    <textarea name="message" placeholder="Mesaj" required></textarea>
+    <button type="submit" class="btn">Trimit mesajul</button>
+  </form>
+</section>
+<div id="cookie-banner" class="cookie-banner">
+  <p>Acest site folosește cookie-uri pentru a îmbunătăți experiența utilizatorului.
+    Continuând navigarea,ești de acord cu utilizarea cookie-urilor.
+  </p>
+  <button id="accept-cookies" class="btn">Accept</button>
+</div>
+<script>
+  const banner = document.getElementById("cookie-banner");
+  const button = document.getElementById("accept-cookies");
+
+  if(localStorage.getItem("cookiesAccepted")){
+    banner.style.display = "none";
+  }
+
+  button.addEventListener("click", () => {
+    localStorage.setItem("cookiesAccepted", "true");
+    banner.style.display = "none";
+  });
+</script>
+</body>
+</html>

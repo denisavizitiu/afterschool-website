@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Despre noi</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<button id="goTopBtn" title="Mergi sus">↑</button>
+<script>
+  const goTopBtn = document.getElementById("goTopBtn");
+
+    // Show button after scrolling down
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 200) {
+        goTopBtn.style.display = "block";
+      } else {
+        goTopBtn.style.display = "none";
+      }
+    });
+  
+    // Scroll to top smoothly when button is clicked
+    goTopBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  </script>
+
+<header class="navbar">
+            <h1 class="logo"><a href="index.html"><img src="images/afterschool logo.jpg" alt="After School logo"><span class="logo-text">Afterschool</span></a></h1>
+
+            <nav>
+                <a href="index.html">Acasă</a>
+                <a href="about.html">Despre noi</a>
+                <a href="programs.html">Taxe & Program</a>
+                <a href="contact.html">Contact</a>
+                <a href="https://www.facebook.com/profile.php?id=61569247984229" target="_blank" class="social-icon">f</a>
+                <a href="https://www.instagram.com/hristinaeducare?igsh=dzc1N3g0c3k5dG55" target="_blank" class="social-icon">📷</a>
+            </nav>
+        </header>
+
+<section class="about-hero">
+  <h1>Despre Noi</h1>
+  <p>Cunoaște centrul nostru de after-school</p>
+</section>
+
+  <section class="content about-section about-description">
+    <h2>Scurtă descriere</h2>
+
+    <p>
+      Centrul nostru after‑school oferă copiilor un echilibru între educație,
+      joacă și dezvoltare personală într‑un mediu sigur și prietenos.
+    </p>
+
+    <p>
+      Ne concentrăm pe nevoile fiecărui copil, încurajând creativitatea,
+      autonomia și încrederea în sine.
+    </p>
+  </section>
+
+  <section class="content about-section about-team">
+    <h2>Echipa noastră</h2>
+
+    <p>
+      Echipa noastră este formată din educatori calificați și pasionați,
+      cu experiență în lucrul cu copii de toate vârstele.
+      Lucrăm împreună pentru a crea activități sigure, motivate și pline de bucurie.
+    </p>
+  </section>
+
+  <section class="content about-section about-offer">
+    <h2>Ce vă oferim</h2>
+
+    <ul>
+      <li>Sprijin individualizat pentru teme și dezvoltare</li>
+      <li>Activități creative și ateliere educative</li>
+      <li>Un mediu prietenos, sigur și susținător</li>
+    </ul>
+  </section>
+
+<div id="cookie-banner" class="cookie-banner">
+  <p>Acest site folosește cookie-uri pentru a îmbunătăți experiența utilizatorului.
+    Continuând navigarea,ești de acord cu utilizarea cookie-urilor.
+  </p>
+  <button id="accept-cookies" class="btn">Accept</button>
+</div>
+<script>
+  const banner = document.getElementById("cookie-banner");
+  const button = document.getElementById("accept-cookies");
+
+  if(localStorage.getItem("cookiesAccepted")){
+    banner.style.display = "none";
+  }
+
+  button.addEventListener("click", () => {
+    localStorage.setItem("cookiesAccepted", "true");
+    banner.style.display = "none";
+  });
+</script>
+
+<footer class="footer">
+          <div class="footer-content">
+            <div>
+              <h3>Contact</h3>
+              <p>Email: hristinaeducare24@gmail.com</p>
+              <p>Telefon: +40 722 664 274</p>
+              <p> Adresa: Calea Urseni 18a, Timișoara</p>
+            </div>
+            <div>
+              <h3>Program</h3>
+              <p>Luni-Vineri: 12:00 - 18:00</p>
+            </div>
+            <div class="social">
+              <h3>Urmăreste-ne</h3>
+              <a href="https://www.facebook.com/profile.php?id=61569247984229" target="_blank" class="social-icon">f</a>
+              <a href="https://www.instagram.com/hristinaeducare?igsh=dzc1N3g0c3k5dG55" target="_blank" class="social-icon">📷</a>
+            </div>
+          </div>
+            <p class="footer-copy">© 2026 Centru After School</p>
+        </footer>
+</body>
+</html>

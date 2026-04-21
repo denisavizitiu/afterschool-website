@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="=ro">
+  <meta charset="UTF-8">
+    <head>
+        <meta charset = "UTF-8">
+        <title>After School - Educație și Activități pentru Copii</title>
+        <meta name="description"
+        content="Centrul nostru after-school oferă sprijin educațional, activități creative și un mediu sigur pentru copii" />
+        <link rel="stylesheet" href ="css/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header class="navbar">
+            <h1 class="logo"><a href="index.html"><img src="images/HristinaEducare logo.jpeg.jpg" alt="After School logo"><span class="logo-text">Hristina EduCare</span></a></h1>
+
+            <nav>
+                <a href="index.html">Acasă</a>
+                <a href="about.html">Despre noi</a>
+                <a href="programs.html">Taxe & Program</a>
+                <a href="contact.html">Contact</a>
+                <a href="https://www.facebook.com/profile.php?id=61569247984229" target="_blank" class="social-icon">f</a>
+                <a href="https://www.instagram.com/hristinaeducare?igsh=dzc1N3g0c3k5dG55" target="_blank" class="social-icon">📷</a>
+            </nav>
+        </header>
+
+ <section class="hero hero-colorful">
+  <div class="hero-content">
+    <h2>Educație și Activități After‑School</h2>
+    <p>Învățare, creativitate și grijă într‑un mediu sigur</p>
+    <a href="programs.html" class="btn">Află mai multe</a>
+  </div>
+</section>
+
+
+ <section class="features section-light">
+  <div class="feature-card">
+    <h3>Personal Calificat</h3>
+    <p>Educatori cu experiență, atenți la nevoile fiecărui copil.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>Activități Creative</h3>
+    <p>Artă, jocuri și ateliere care dezvoltă imaginația.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>Mediu Sigur</h3>
+    <p>Un spațiu prietenos unde copiii se simt ca acasă.</p>
+  </div>
+</section>
+<section class="gallery section-accent">
+  <h2>Activitățile Noastre</h2>
+
+  <div class="gallery-grid">
+    <img src="images/activity 1.jpg" alt="Activitate copii">
+    <img src="images/activity 2.jpg" alt="Joacă educativă">
+    <img src="images/activity 3.jpg" alt="Atelier creativ">
+  </div>
+</section>
+<section class="cta section-accent">
+  <h2>Rezervă-ți locul!</h2>
+  <p>Contactează-ne la 0740 123 456</p>
+  <!--Separate Contact button -->
+<a href="contact.html" class="btn">Contact</a>
+</section>
+<div id="cookie-banner" class="cookie-banner">
+  <p>Acest site folosește cookie-uri pentru a îmbunătăți experiența utilizatorului.
+    Continuând navigarea, ești de acord cu utilizarea cookie-urilor.
+  </p>
+  <button id="accept-cookies" class="btn">Accept</button>
+</div>
+<script>
+  const banner = document.getElementById("cookie-banner");
+  const button = document.getElementById("accept-cookies");
+
+  if(localStorage.getItem("cookiesAccepted")){
+    banner.style.display = "none";
+  }
+
+  button.addEventListener("click", () => {
+    localStorage.setItem("cookiesAccepted", "true");
+    banner.style.display = "none";
+  });
+</script>
+
+<button id="goTopBtn" title="Mergi sus">↑</button>
+<script>
+  const goTopBtn = document.getElementById("goTopBtn");
+
+  // Show button after scrolling down
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) {
+      goTopBtn.style.display = "block";
+    } else {
+      goTopBtn.style.display = "none";
+    }
+  });
+
+  // Scroll to top smoothly when button is clicked
+  goTopBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+</script>
+
+  
+          <footer class="footer">
+          <div class="footer-content">
+            <div>
+              <h3>Contact</h3>
+              <p>Email: contact@afterschool.ro</p>
+              <p>Telefon: +40 700 000 000</p>
+              <p> Adresa: Str. Educației nr.10, Timișoara</p>
+            </div>
+            <div>
+              <h3>Program</h3>
+              <p>Luni-Vineri: 12:00 - 18:00</p>
+            </div>
+            <div class="social">
+              <h3>Urmăreste-ne</h3>
+              <a href="https://www.facebook.com/profile.php?id=61569247984229" target="_blank" class="social-icon">f</a>
+              <a href="https://www.instagram.com/hristinaeducare?igsh=dzc1N3g0c3k5dG55" target="_blank" class="social-icon">📷</a>
+            </div>
+          </div>
+            <p class="footer-copy">© 2026 Centru After School</p>
+        </footer>
+    </body>
+</html>

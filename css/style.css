@@ -391,3 +391,22 @@ RESPONSIVE
     flex-direction: column;
   }
 }
+
+
+/* Mobile */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .navbar.active .nav-links {
+    display: flex;
+  }
+}

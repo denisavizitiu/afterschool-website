@@ -1,3 +1,31 @@
+/* =========================
+   LOAD CMS CONTENT
+========================= */
+
+// Homepage content
+fetch("/content/home.json")
+  .then(res => res.json())
+  .then(data => {
+    const heroTitle = document.querySelector(".hero h1");
+    const heroSubtitle = document.querySelector(".hero p");
+    const ctaButton = document.querySelector(".cta .btn");
+
+    if (heroTitle) heroTitle.textContent = data.hero_title;
+    if (heroSubtitle) heroSubtitle.textContent = data.hero_subtitle;
+    if (ctaButton) ctaButton.textContent = data.cta_text;
+  });
+
+// Contact page content
+fetch("/content/contact.json")
+  .then(res => res.json())
+  .then(data => {
+    const emailEl = document.querySelector(".contact-email");
+    const phoneEl = document.querySelector(".contact-phone");
+
+    if (emailEl) emailEl.textContent = data.email;
+    if (phoneEl) phoneEl.textContent = data.phone;
+  });
+  
 document.addEventListener("DOMContentLoaded", () => {
   /* =========================
      COOKIE BANNER

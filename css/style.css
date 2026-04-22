@@ -647,7 +647,7 @@ color: white;
   padding: 15px 20px;
 }
 
-.footer-context {
+.footer-content {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -769,3 +769,16 @@ color: white;
 }
 
 
+
+.footer .social {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.footer .social div, .footer .social-links {display:flex;gap:10px;}
+.footer a.social-icon {
+  display:inline-flex;align-items:center;justify-content:center;
+  width:36px;height:36px;border-radius:50%;
+  background:#3498db;color:white;font-size:18px;
+}
+.footer .social a + a.social-icon {background:#e4405f;}

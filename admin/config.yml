@@ -9,20 +9,13 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
+
       - label: "Homepage"
         name: "home"
         file: "content/home.json"
         fields:
           - { label: "Hero Title", name: "hero_title", widget: "string" }
           - { label: "Hero Subtitle", name: "hero_subtitle", widget: "string" }
-          - { label: "CTA Button Text", name: "cta_text", widget: "string" }
-
-      - label: "Contact Page"
-        name: "contact"
-        file: "content/contact.json"
-        fields:
-          - { label: "Email", name: "email", widget: "string" }
-          - { label: "Phone", name: "phone", widget: "string" }
 
           - label: "Gallery"
             name: "gallery"
@@ -33,23 +26,11 @@ collections:
               name: "image"
               widget: "image"
 
-            collections:
-  - name: "pages"
-    label: "Pages"
-    files:
-      - label: "Homepage"
-        name: "home"
-        file: "content/home.json"
+          - { label: "CTA Button Text", name: "cta_text", widget: "string" }
+
+      - label: "Contact Page"
+        name: "contact"
+        file: "content/contact.json"
         fields:
-          - { label: "Hero Title", name: "hero_title", widget: "string" }
-          - { label: "Hero Subtitle", name: "hero_subtitle", widget: "string" }
-
-          - label: "Gallery"
-            name: "gallery"
-            widget: "list"
-            field:
-              label: "Image"
-              name: "image"
-              widget: "image"
-
-          - { label: "CTA Text", name: "cta_text", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Phone", name: "phone", widget: "string" }

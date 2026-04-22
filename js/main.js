@@ -106,4 +106,10 @@ fetch("/content/home.json")
       galleryContainer.appendChild(img);
     });
   });
-``
+
+const toggle = document.querySelector(".nav-toggle");
+const navbar = document.querySelector(".navbar");
+
+toggle.addEventListener("click", () => {
+  navbar.classList.toggle("active");
+});

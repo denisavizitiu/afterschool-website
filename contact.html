@@ -72,45 +72,29 @@
       <div class="content-box">
         <h2>Trimite un mesaj</h2>
 
-        <form action="https://formspree.io/f/xojyvwob" method="POST">
-          <input
-            type="text"
-            name="name"
-            placeholder="Nume"
-            required
-            aria-label="Nume"
-          >
+        
+<form
+      action="https://formspree.io/f/xojyvwob"
+      method="POST"
+      class="contact-form"
+    >
+      <input type="text" name="name" placeholder="Nume" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="tel" name="phone" placeholder="Telefon" required>
 
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            required
-            aria-label="Email"
-          >
+      <textarea
+        name="message"
+        placeholder="Mesaj"
+        required
+      ></textarea>
 
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Telefon"
-            required
-            aria-label="Telefon"
-          >
+      <button type="submit" class="btn">
+        Trimite mesajul
+      </button>
+    </form>
+  </div>
+</section>
 
-          <textarea
-            name="message"
-            placeholder="Mesaj"
-            required
-            aria-label="Mesaj">
-          </textarea>
-
-          <button type="submit" class="btn">
-            Trimite mesajul
-          </button>
-        </form>
-
-      </div>
-    </section>
 
   </main>
 

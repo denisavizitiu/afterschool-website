@@ -139,6 +139,14 @@ BUTTONS
   transform: translateY(-3px);
 }
 
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align:center;
+}
+
 /* ==================================================
 SECTIONS
 ================================================== */
@@ -227,6 +235,11 @@ PROGRAM BOX
   min-width: 110px;
 }
 
+.program-box .btn {
+  display: block;
+  margin: 25px auto 0;
+}
+
 /* ==================================================
 GALLERY
 ================================================== */
@@ -271,12 +284,26 @@ CONTACT FORM
   gap: 15px;
 }
 
+/* Inputs & textarea */
 .contact-form input,
 .contact-form textarea {
-  padding: 14px;
+  width: 100%;
+  padding: 14px 16px;
   border-radius: 12px;
-  border: none;
+  border: 1px solid #ccc;
   font-family: inherit;
+  font-size: 14px;
+}
+
+/* Make textarea feel like a real message box */
+.contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Center the button */
+.contact-form button {
+  align-self: center;
 }
 
 /* ==================================================

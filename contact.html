@@ -1,106 +1,168 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
   <meta charset="UTF-8">
-  <title>Contact</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Contact – Hristina EduCare</title>
+  <meta
+    name="description"
+    content="Contactează centrul after‑school Hristina EduCare. Găsește locația noastră, datele de contact și trimite un mesaj."
+  >
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Lobster&display=swap" rel="stylesheet">
+
+  <!-- Main Styles -->
   <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
-<button id="goTopBtn" title="Mergi sus">↑</button>
-<script>
-  const goTopBtn = document.getElementById("goTopBtn");
 
-    // Show button after scrolling down
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 200) {
-        goTopBtn.style.display = "block";
-      } else {
-        goTopBtn.style.display = "none";
-      }
-    });
-  
-    // Scroll to top smoothly when button is clicked
-    goTopBtn.addEventListener("click", () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    });
-  </script>
+  <!-- ================= HEADER ================= -->
+  <header id="header"></header>
 
-<header class="navbar">
-            <h1 class="logo"><a href="index.html"><img src="images/afterschool logo.jpg" alt="After School logo"><span class="logo-text">Afterschool</span></a></h1>
+  <!-- ================= MAIN ================= -->
+  <main>
 
-            <nav>
-                <a href="index.html">Acasă</a>
-                <a href="about.html">Despre noi</a>
-                <a href="programs.html">Taxe & Program</a>
-                <a href="contact.html">Contact</a>
-                <a href="https://www.facebook.com/profile.php?id=61569247984229" target="_blank" class="social-icon">f</a>
-                <a href="https://www.instagram.com/hristinaeducare?igsh=dzc1N3g0c3k5dG55" target="_blank" class="social-icon">📷</a>
-            </nav>
-        </header>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Contact</h1>
+        <p>Suntem aici pentru orice întrebare</p>
+      </div>
+    </section>
 
- <section class="contact contact-map">
-  <h2>Locație</h2>
+    <!-- LOCATION -->
+    <section class="section-blue">
+      <div class="content-box">
+        <h2>Locație</h2>
 
-  <div class="map-wrapper">
-    <iframe
-      src="https://www.google.com/maps?q=Strada+Educației+10,+Timișoara&output=embed"
-      width="100%"
-      height="350"
-      style="border:0;"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-    ></iframe>
+        <div class="map-wrapper">
+          <iframe
+            src="https://www.google.com/maps?q=Strada+Educației+10,+Timișoara&output=embed"
+            width="100%"
+            height="300"
+            style="border:0;"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Locația Hristina EduCare">
+          </iframe>
+        </div>
+
+        <p>
+          <strong>Adresă:</strong> Str. Educației nr. 10, Timișoara
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT INFO -->
+    <section class="section-green">
+      <div class="content-box">
+        <h2>Date de contact</h2>
+        <p><strong>Email:</strong> <a href="mailto:contact@afterschool.ro">contact@afterschool.ro</a></p>
+        <p><strong>Telefon:</strong> <a href="tel:+40700000000">+40 700 000 000</a></p>
+      </div>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section class="section-pink">
+      <div class="content-box">
+        <h2>Trimite un mesaj</h2>
+
+        <form action="https://formspree.io/f/xojyvwob" method="POST">
+          <input
+            type="text"
+            name="name"
+            placeholder="Nume"
+            required
+            aria-label="Nume"
+          >
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            required
+            aria-label="Email"
+          >
+
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Telefon"
+            required
+            aria-label="Telefon"
+          >
+
+          <textarea
+            name="message"
+            placeholder="Mesaj"
+            required
+            aria-label="Mesaj">
+          </textarea>
+
+          <button type="submit" class="btn">
+            Trimite mesajul
+          </button>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer id="footer"></footer>
+
+  <!-- ================= COOKIE BANNER ================= -->
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite">
+    <p>
+      Acest site folosește cookie‑uri pentru a îmbunătăți experiența utilizatorului.
+    </p>
+    <button id="accept-cookies" class="btn">Accept</button>
   </div>
 
-  <p>Adresă: Str. Educației nr.10, Timișoara</p>
-</section>
+  <!-- ================= GO TO TOP BUTTON ================= -->
+  <button id="goTopBtn" title="Mergi sus" aria-label="Mergi sus">↑</button>
 
-<section class="contact contact-info">
-  <h2>Contact</h2>
+  <!-- ================= SCRIPTS ================= -->
+  <script>
+    // Cookie banner
+    const banner = document.getElementById("cookie-banner");
+    const acceptBtn = document.getElementById("accept-cookies");
 
-  <p>Email: contact@afterschool.ro</p>
-  <p>Telefon: +40 700 000 000</p>
-</section>
+    if (localStorage.getItem("cookiesAccepted")) {
+      banner.style.display = "none";
+    }
 
-<section class="contact contact-form-section">
-  <h2>Trimite un mesaj</h2>
+    acceptBtn.addEventListener("click", () => {
+      localStorage.setItem("cookiesAccepted", "true");
+      banner.style.display = "none";
+    });
 
-  <form
-    action="https://formspree.io/f/xojyvwob"
-    method="POST"
-    class="contact-form"
-  >
-    <input type="text" name="name" placeholder="Nume" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <input type="tel" name="phone" placeholder="Telefon" required>
+    // Go to top button
+    const goTopBtn = document.getElementById("goTopBtn");
 
-    <textarea name="message" placeholder="Mesaj" required></textarea>
-    <button type="submit" class="btn">Trimit mesajul</button>
-  </form>
-</section>
-<div id="cookie-banner" class="cookie-banner">
-  <p>Acest site folosește cookie-uri pentru a îmbunătăți experiența utilizatorului.
-    Continuând navigarea,ești de acord cu utilizarea cookie-urilor.
-  </p>
-  <button id="accept-cookies" class="btn">Accept</button>
-</div>
-<script>
-  const banner = document.getElementById("cookie-banner");
-  const button = document.getElementById("accept-cookies");
+    window.addEventListener("scroll", () => {
+      goTopBtn.style.display = window.scrollY > 200 ? "block" : "none";
+    });
 
-  if(localStorage.getItem("cookiesAccepted")){
-    banner.style.display = "none";
-  }
+    goTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
 
-  button.addEventListener("click", () => {
-    localStorage.setItem("cookiesAccepted", "true");
-    banner.style.display = "none";
-  });
-</script>
+    // Load header & footer
+    fetch("partials/header.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("header").innerHTML = data);
+
+    fetch("partials/footer.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("footer").innerHTML = data);
+  </script>
+
 </body>
 </html>

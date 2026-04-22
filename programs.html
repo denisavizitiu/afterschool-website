@@ -1,111 +1,152 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
-  <meta charset="UTF-8">
-  <title>Programs</title>
+  <meta charset="UTF-8" />
+  <title>Taxe & Program – Hristina EduCare</title>
+
+  <meta
+    name="description"
+    content="Descoperă taxele, programul zilnic și activitățile oferite de centrul after‑school Hristina EduCare."
+  />
+
+   <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Lobster&display=swap" rel="stylesheet">
+
+  <!-- Main Styles -->
   <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
-<button id="goTopBtn" title="Mergi sus">↑</button>
-<script>
-  const goTopBtn = document.getElementById("goTopBtn");
 
-    // Show button after scrolling down
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 200) {
-        goTopBtn.style.display = "block";
-      } else {
-        goTopBtn.style.display = "none";
-      }
-    });
-  
-    // Scroll to top smoothly when button is clicked
-    goTopBtn.addEventListener("click", () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    });
-  </script>
+<!-- ================= HEADER ================= -->
+<div id="header"></div>
+<!-- ================= MAIN ================= -->
+<main>
 
-<header class="navbar">
-            <h1 class="logo"><a href="index.html"><img src="images/afterschool logo.jpg" alt="After School logo"><span class="logo-text">Afterschool</span></a></h1>
+  <!-- HERO / TITLE -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Taxe & Program</h1>
+      <p>Informații clare despre programul zilnic și activități</p>
+    </div>
+  </section>
 
-            <nav>
-                <a href="index.html">Acasă</a>
-                <a href="about.html">Despre noi</a>
-                <a href="programs.html">Taxe & Program</a>
-                <a href="contact.html">Contact</a>
-                <a href="https://www.facebook.com/profile.php?id=61569247984229" target="_blank" class="social-icon">f</a>
-                <a href="https://www.instagram.com/hristinaeducare?igsh=dzc1N3g0c3k5dG55" target="_blank" class="social-icon">📷</a>
-            </nav>
-        </header>
+  <!-- FEES & DAILY PROGRAM -->
+ <section class="section-green">
+  <div class="content-box">
+    <h2>Taxe și Program Zilnic</h2>
 
- <section class="programs section-accent programs-fees">
-  <h2>Taxe & Program</h2>
+    <div class="program-box">
+      <p><strong>Taxă:</strong> 1000 lei / lună</p>
+      <p><strong>Program:</strong> 12:00 – 18:00</p>
+      <p><strong>12:00:</strong> Preluare copii de la școală</p>
+      <p><strong>13:00:</strong> Activități de relaxare</p>
+      <p><strong>14:00:</strong> Masă de prânz</p>
+      <p><strong>15:00:</strong> Teme și studiu asistat</p>
 
-  <div class="program-box">
-    <p><strong>Taxa:</strong> 1000 lei/lună</p>
-    <p><strong>Program:</strong> 12:00 - 18:00</p>
-    <p><strong>Ora 12:</strong> Preluare copii de la școală</p>
-    <p><strong>Ora 13:</strong> Activități de relaxare</p>
-    <p><strong>Ora 14:</strong> Masă de prânz</p>
-    <p><strong>Ora 15:</strong> Teme</p>
-    <a href="contact.html" class="btn">Contact</a>
+     <a href="contact.html" class="btn">Contact</a>
+    </div>
   </div>
 </section>
 
-<section class="programs section-light programs-activities">
-  <h2>Programele Noastre</h2>
+  <!-- PROGRAMS -->
+  <section class="section-yellow">
+    <div class="content-box">
+      <h2>Programele Noastre</h2>
 
-  <div class="program-grid">
-    <div class="program-card">
-      <h3>Sprijin la Teme</h3>
-      <p>Ajutor ghidat pentru temele școlare și învățare.</p>
+      <div class="features">
+        <div class="program-card">
+          <h3>Sprijin la Teme</h3>
+          <p>Ajutor ghidat pentru temele școlare și aprofundarea cunoștințelor.</p>
+        </div>
+
+        <div class="program-card">
+          <h3>Artă și Creativitate</h3>
+          <p>Desen, lucru manual și ateliere creative pentru imaginație.</p>
+        </div>
+
+        <div class="program-card">
+          <h3>Sport și Mișcare</h3>
+          <p>Activități fizice adaptate pentru o dezvoltare sănătoasă.</p>
+        </div>
+
+        <div class="program-card">
+          <h3>Dezvoltare Personală</h3>
+          <p>Comunicare, încredere în sine și lucrul în echipă.</p>
+        </div>
+      </div>
+      
+  <!-- PROGRAMS GALLERY -->
+    <div class="gallery-grid" style="margin:40px 0;">
+      images/program-1.jpg
+      images/program-2.jpg
+      images/program-3.jpg
+      images/program-4.jpg
     </div>
 
-    <div class="program-card">
-      <h3>Artă și Creativitate</h3>
-      <p>Desen, lucru manual și ateliere creative.</p>
-    </div>
 
-    <div class="program-card">
-      <h3>Sport și Mișcare</h3>
-      <p>Activități fizice pentru dezvoltarea sănătoasă.</p>
+      <div class="program-info" style="margin-top:40px;">
+        <h3>Informații Importante</h3>
+        <p>Taxa se achită între 1 și 10 ale lunii.</p>
+        <p>Activitățile extra se plătesc separat.</p>
+        <p>Program disponibil și în perioada vacanțelor.</p>
+        <p>Transportul este inclus în taxa lunară.</p>
+      </div>
     </div>
+  </section>
 
-    <div class="program-card">
-      <h3>Dezvoltare Personală</h3>
-      <p>Încredere, comunicare și lucrul în echipă.</p>
-    </div>
-  </div>
-  <div class="program-info">
-    <h3>Informații Importante</h3>
-    <p>Taxa se achită în perioada 1 și 10 ale lunii.</p>
-    <p>Activitățile extra se plătesc separat.</p>
-    <p>Puteți opta și pentru program în perioada vacanțelor.</p>
-    <p>Transportul este inclus în taxa lunară.</p>
-  </div>
-</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<div id="footer"></div>
+
+<!-- ================= COOKIE BANNER ================= -->
 <div id="cookie-banner" class="cookie-banner">
-  <p>Acest site folosește cookie-uri pentru a îmbunătăți experiența utilizatorului.
-    Continuând navigarea,ești de acord cu utilizarea cookie-urilor.
+  <p>
+    Acest site folosește cookie‑uri pentru a îmbunătăți experiența utilizatorului.
   </p>
   <button id="accept-cookies" class="btn">Accept</button>
 </div>
+
+<!-- ================= GO UP BUTTON ================= -->
+<button id="goTopBtn" title="Mergi sus">↑</button>
+
+<!-- ================= SCRIPTS ================= -->
 <script>
   const banner = document.getElementById("cookie-banner");
-  const button = document.getElementById("accept-cookies");
+  const acceptBtn = document.getElementById("accept-cookies");
 
-  if(localStorage.getItem("cookiesAccepted")){
+  if (localStorage.getItem("cookiesAccepted")) {
     banner.style.display = "none";
   }
 
-  button.addEventListener("click", () => {
+  acceptBtn.addEventListener("click", () => {
     localStorage.setItem("cookiesAccepted", "true");
     banner.style.display = "none";
   });
+
+  const goTopBtn = document.getElementById("goTopBtn");
+
+  window.addEventListener("scroll", () => {
+    goTopBtn.style.display = window.scrollY > 200 ? "block" : "none";
+  });
+
+  goTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
 </script>
+
+<script>
+  fetch("partials/header.html")
+    .then(res => res.text())
+    .then(data => document.getElementById("header").innerHTML = data);
+
+  fetch("partials/footer.html")
+    .then(res => res.text())
+    .then(data => document.getElementById("footer").innerHTML = data);
+</script>
+
 </body>
 </html>

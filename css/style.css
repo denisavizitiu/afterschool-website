@@ -382,31 +382,26 @@ GO TO TOP BUTTON
 /* ==================================================
 RESPONSIVE
 ================================================== */
-@media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 26px;
-  }
-
-  .features {
-    flex-direction: column;
-  }
-}
-
-
 /* Mobile */
+
 @media (max-width: 768px) {
-  .nav-toggle {
-    display: block;
-  }
-
-  .nav-links {
-    display: none;
+  .navbar {
     flex-direction: column;
-    width: 100%;
-    margin-top: 15px;
+    align-items: center;
+    text-align: center;
   }
 
-  .navbar.active .nav-links {
-    display: flex;
+  .navbar nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .logo-text {
+    font-size: 20px;
   }
 }
+ .features {
+    flex-direction: column;
+  }
+
+

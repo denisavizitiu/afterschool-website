@@ -86,3 +86,24 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch(err => console.error("Footer load error:", err));
   }
 });
+
+fetch("/content/home.json")
+  .then(res => res.json())
+  .then(data => {
+    const galleryContainer = document.getElementById("home-gallery");
+
+    if (!galleryContainer || !Array.isArray(data.gallery)) return;
+
+    galleryContainer.innerHTML = "";
+
+    data.gallery.forEach(item => {
+      if (!item.image) return;
+
+      const img = document.createElement("img");
+      img.src = item.image;
+      img.alt = "Activitate after‑school";
+
+      galleryContainer.appendChild(img);
+    });
+  });
+``

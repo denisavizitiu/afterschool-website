@@ -3,3 +3,30 @@
   "hero_subtitle": "Învățare, creativitate și grijă într‑un mediu sigur",
   "cta_text": "Contact"
 }
+
+
+{
+  "hero_title": "Educație și Activități After‑School",
+  "hero_subtitle": "Învățare, creativitate și grijă într‑un mediu sigur",
+  "gallery": [],
+  "cta_text": "Contact"
+}
+{
+  "hero_title": "Educație și Activități After‑School",
+  "hero_subtitle": "Învățare, creativitate și grijă într‑un mediu sigur",
+  "gallery": [
+    {
+      "image_url": "/images/gallery1.jpg",
+      "alt_text": "Copii învățând împreună"
+    },
+    {
+      "image_url": "/images/gallery2.jpg",
+      "alt_text": "Activități creative în after‑school"
+    },
+    {
+      "image_url": "/images/gallery3.jpg",
+      "alt_text": "Grup de copii jucându-se în aer liber"
+    }
+  ],
+  "cta_text": "Contact"
+}

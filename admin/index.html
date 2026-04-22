@@ -10,5 +10,20 @@
   <!-- ✅ CMS MUST load AFTER body exists -->
   <script src="https://unpkg.com/decap-cms@latest/dist/decap-cms.js"></script>
 
+  
+ <!-- ✅ REQUIRED: handle login redirect -->
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+
+
 </body>
 </html>

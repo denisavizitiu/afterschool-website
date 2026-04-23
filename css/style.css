@@ -84,19 +84,21 @@ NAVBAR
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-weight: 700;
-  font-size: 18px;
   color: #fff;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  font-size: 18px;
 }
-
 /* Brand colors */
 .social-icon.facebook {
   background-color: #1877f2;
 }
-
 .social-icon.instagram {
-  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af);
+  background: linear-gradient(
+    45deg,
+    #f58529,
+    #dd2a7b,
+    #8134af,
+    #515bd4
+  );
 }
 
 .social-icon:hover {
@@ -384,24 +386,111 @@ RESPONSIVE
 ================================================== */
 /* Mobile */
 
+/* ============================
+   MOBILE FIXES – ALL PAGES
+   Hero + Programs consistency
+============================ */
+
+/* ===================================
+   MOBILE IMPROVEMENTS
+=================================== */
+
 @media (max-width: 768px) {
+
+  /* ---------- NAVBAR ---------- */
   .navbar {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    padding: 12px 16px;
+    flex-wrap: wrap;
   }
 
-  .navbar nav {
-    flex-direction: column;
-    gap: 10px;
+  .logo img {
+    height: 42px;
   }
 
   .logo-text {
-    font-size: 20px;
-  }
-}
- .features {
-    flex-direction: column;
+    font-size: 1.05rem;
   }
 
+  .navbar nav {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .navbar nav a {
+    font-size: 14px;
+    margin-left: 0;
+  }
+
+  .social-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    min-height: 75vh;
+    padding: 60px 16px 70px;
+  }
+
+  .hero-content h1 {
+    font-size: 28px;
+    line-height: 1.25;
+  }
+
+  .hero-content p {
+    font-size: 15px;
+    margin-top: 10px;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-content .btn {
+    font-size: 15px;
+    padding: 14px 32px;
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section {
+    padding: 50px 16px;
+  }
+
+  section h2 {
+    font-size: 24px;
+  }
+
+  /* ---------- CARDS ---------- */
+  .feature-card,
+  .program-card {
+    padding: 22px;
+  }
+
+  /* ---------- PROGRAM BOX ---------- */
+  .program-box {
+    padding: 26px 20px;
+    text-align: left;
+  }
+
+  .program-box strong {
+    min-width: auto;
+    display: block;
+  }
+
+  
+  .container h3 {
+    margin-top: 25px;
+    font-size: 18px;
+  }
+
+  .container p,
+  .container li {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+}
 

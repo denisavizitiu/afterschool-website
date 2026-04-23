@@ -1,31 +1,3 @@
-/* =========================
-   LOAD CMS CONTENT
-========================= */
-
-// Homepage content
-fetch("/content/home.json")
-  .then(res => res.json())
-  .then(data => {
-    const heroTitle = document.querySelector(".hero h1");
-    const heroSubtitle = document.querySelector(".hero p");
-    const ctaButton = document.querySelector(".cta .btn");
-
-    if (heroTitle) heroTitle.textContent = data.hero_title;
-    if (heroSubtitle) heroSubtitle.textContent = data.hero_subtitle;
-    if (ctaButton) ctaButton.textContent = data.cta_text;
-  });
-
-// Contact page content
-fetch("/content/contact.json")
-  .then(res => res.json())
-  .then(data => {
-    const emailEl = document.querySelector(".contact-email");
-    const phoneEl = document.querySelector(".contact-phone");
-
-    if (emailEl) emailEl.textContent = data.email;
-    if (phoneEl) phoneEl.textContent = data.phone;
-  });
-  
 document.addEventListener("DOMContentLoaded", () => {
   /* =========================
      COOKIE BANNER
@@ -87,29 +59,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-fetch("/content/home.json")
-  .then(res => res.json())
-  .then(data => {
-    const galleryContainer = document.getElementById("home-gallery");
-
-    if (!galleryContainer || !Array.isArray(data.gallery)) return;
-
-    galleryContainer.innerHTML = "";
-
-    data.gallery.forEach(item => {
-      if (!item.image) return;
-
-      const img = document.createElement("img");
-      img.src = item.image;
-      img.alt = "Activitate after‑school";
-
-      galleryContainer.appendChild(img);
-    });
-  });
-
+/* =========================
+   MOBILE NAVBAR TOGGLE
+========================= */
 const toggle = document.querySelector(".nav-toggle");
 const navbar = document.querySelector(".navbar");
 
-toggle.addEventListener("click", () => {
-  navbar.classList.toggle("active");
-});
+if (toggle && navbar) {
+  toggle.addEventListener("click", () => {
+    navbar.classList.toggle("active");
+  });
+}

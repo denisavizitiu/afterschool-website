@@ -405,10 +405,12 @@ RESPONSIVE
 
   .logo img {
     height: 42px;
+    align-items: center;
   }
 
   .logo-text {
     font-size: 1.05rem;
+    align-items: center;
   }
 
   .navbar nav {

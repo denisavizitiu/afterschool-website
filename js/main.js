@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const header = document.getElementById("header");
 
   if (header) {
-    fetch("/partials/header.html")
+    fetch("partials/header.html")
       .then(res => res.text())
       .then(html => {
         header.innerHTML = html;
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const footer = document.getElementById("footer");
 
   if (footer) {
-    fetch("/partials/footer.html")
+    fetch("partials/footer.html")
       .then(res => res.text())
       .then(html => {
         footer.innerHTML = html;

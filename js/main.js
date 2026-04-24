@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+
   /* =========================
      COOKIE BANNER
   ========================= */
@@ -35,38 +36,49 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================
-     LOAD HEADER & FOOTER
+     LOAD HEADER
+     + INIT MOBILE NAV
   ========================= */
   const header = document.getElementById("header");
-  const footer = document.getElementById("footer");
 
   if (header) {
     fetch("/partials/header.html")
       .then(res => res.text())
-      .then(data => {
-        header.innerHTML = data;
+      .then(html => {
+        header.innerHTML = html;
+
+        // ✅ NOW the elements exist
+        const hamburger = header.querySelector(".hamburger");
+        const navLinks = header.querySelector(".nav-links");
+
+        if (hamburger && navLinks) {
+          hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("open");
+          });
+
+          // Close menu when a link is clicked
+          navLinks.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+              navLinks.classList.remove("open");
+            });
+          });
+        }
       })
       .catch(err => console.error("Header load error:", err));
   }
 
+  /* =========================
+     LOAD FOOTER
+  ========================= */
+  const footer = document.getElementById("footer");
+
   if (footer) {
     fetch("/partials/footer.html")
       .then(res => res.text())
-      .then(data => {
-        footer.innerHTML = data;
+      .then(html => {
+        footer.innerHTML = html;
       })
       .catch(err => console.error("Footer load error:", err));
   }
+
 });
-
-/* =========================
-   MOBILE NAVBAR TOGGLE
-========================= */
-const toggle = document.querySelector(".nav-toggle");
-const navbar = document.querySelector(".navbar");
-
-if (toggle && navbar) {
-  toggle.addEventListener("click", () => {
-    navbar.classList.toggle("active");
-  });
-}

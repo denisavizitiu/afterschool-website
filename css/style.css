@@ -237,16 +237,18 @@ PROGRAM BOX
   padding: 35px 30px;
   border-radius: 22px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-  text-align: justify;
+  text-align: center;
 }
 
 .program-box p {
-  margin: 10px 0;
+  margin: 20px 0;
 }
 
 .program-box strong {
   display: inline-block;
   min-width: 110px;
+  text-align: center;
+  
 }
 
 .program-box .btn {

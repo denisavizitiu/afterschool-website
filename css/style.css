@@ -181,6 +181,171 @@ section:not(:first-child) {
 .section-yellow{ background: var(--soft-yellow); }
 
 /* ==================================================
+ABOUT SECTION
+================================================== */
+.about-section {
+  background: #fde9ef;
+  padding: 4rem 1.5rem;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-image {
+  flex: 1.2;                  /* ✅ image becomes dominant */
+}
+
+/* LEFT IMAGE */
+.about-image img {
+  width: 100%;
+  height: 420px;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  transition: transform 0.4s ease, box-shadow 0.4s ea
+
+}
+
+.about-image img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.18);
+}
+
+
+/* RIGHT TEXT */
+.about-text {
+  flex: 1;
+  text-align: left;
+}
+
+.about-text h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+
+.about-text h2::after {
+  content: "";
+  width: 50px;
+  height: 3px;
+  background: #ff5a7a;
+  position: absolute;
+}
+
+
+.about-text .underline {
+  width: 50px;
+  height: 3px;
+  background: #ff5a7a;
+  margin-bottom: 1.5rem;
+}
+
+.about-text p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+
+.team-intro {
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  color: #444;
+}
+
+
+.team-text {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+
+.team-text p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1.3rem;
+  color: #333;
+}
+
+.team-text strong {
+  color: #6b4cf6; /* same purple as your accents */
+  font-weight: 600;
+}
+
+.team-section {
+  background: #f3effc; /* slightly calmer than current */
+}
+
+.offer-section {
+  background: #f3effc;
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.offer-text {
+  max-width: 720px;        /* ✅ controls line length */
+  margin: 0 auto;
+}
+
+.offer-intro {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 1.8rem;
+}
+
+.offer-text p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+  color: #333;
+}
+
+/* highlight key ideas */
+.offer-text strong {
+  color: #6b4cf6;          /* matches your accents */
+  font-weight: 600;
+}
+
+.offer-text p:last-child {
+  margin-bottom: 0;
+}
+.values-section {
+  background: #fde9ef;
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.values-text {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.values-intro {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 1.8rem;
+}
+
+.values-text p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+  color: #333;
+}
+
+.values-text strong {
+  color: #6b4cf6; /* same accent as other sections */
+  font-weight: 600;
+}
+/* ==================================================
 SECTION TITLES
 ================================================== */
 section h2 {
@@ -254,6 +419,31 @@ PROGRAM BOX
 .program-box .btn {
   display: block;
   margin: 25px auto 0;
+}
+
+
+.icon-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.icon-list li {
+  display: flex;
+  align-items: center;      /* ✅ vertical alignment FIX */
+  gap: 0.45rem;             /* ✅ brings icon closer to text */
+  margin-bottom: 0.6rem;
+}
+
+.icon-list .icon {
+  color: #6b4cf6;
+  font-size: 0.9rem;
+  flex-shrink: 0;           /* ✅ prevents shifting */
+  line-height: 1;
+}
+
+.icon-list .text {
+  line-height: 1.4;
 }
 
 /* ==================================================
@@ -585,6 +775,11 @@ RESPONSIVE
   .hamburger {
     display: flex;
   }
+  
+  .about-image img {
+    height: 260px;
+  }
+
 
 
 /* =========================

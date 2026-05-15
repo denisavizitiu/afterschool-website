@@ -372,6 +372,10 @@ FEATURES & CARDS
   gap: 25px;
   justify-content: center;
   flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px 24px;
+
 }
 
 .feature-card,
@@ -391,6 +395,37 @@ FEATURES & CARDS
 .feature-card h3 {
   color: var(--secondary);
 }
+
+.program-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  background: #fff;
+  padding: 14px 18px;
+  border-radius: 999px;
+
+  border: 2px solid #f2c6c6;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+
+  transition: all 0.25s ease;
+
+  opacity: 0;
+  transform: translateY(30px);
+
+}
+
+.program-card:hover {
+  transform: translateY(-4px);
+}
+
+
+.program-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 
 /* ==================================================
 PROGRAM BOX
@@ -619,6 +654,11 @@ PROGRAM BOX
   border-radius: 20px;
 }
 
+.content-box {
+  max-width: 1000px;   /* IMPORTANT */
+  margin: 0 auto;
+}
+
 
 .content-box img {
  width: 100%;
@@ -628,6 +668,103 @@ PROGRAM BOX
 
 }
 
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:20px;
+}
+
+
+/* main pill */
+.program-card {
+  width:100%;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  background: #fff;
+  padding: 14px 20px;
+  border-radius: 999px;
+
+  border: 2px solid #f2c6c6;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+
+  transition: 0.2s ease;
+}
+
+.program-card:hover {
+  transform: translateY(-3px);
+}
+
+/* number badge */
+.badge {
+  width: 34px;
+  height: 34px;
+
+  border-radius: 50%;
+  background: #ff8fa3;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: bold;
+}
+
+/* emoji */
+.emoji {
+  font-size: 26px;
+}
+
+/* text section */
+.text {
+  padding-left: 12px;
+  border-left: 2px solid #e5e5e5;
+}
+
+.text h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.text p {
+  margin: 2px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.date {
+  font-weight: 600;
+  color: #333;
+}
+
+.program-card:nth-child(1) { border-color: #ffc2d1; }
+.program-card:nth-child(2) { border-color: #ffd6a5; }
+.program-card:nth-child(3) { border-color: #fdffb6; }
+.program-card:nth-child(4) { border-color: #caffbf; }
+.program-card:nth-child(5) { border-color: #a0c4ff; }
+.program-card:nth-child(6) { border-color: #bdb2ff; }
+.program-card:nth-child(7) { border-color: #ffc6ff; }
+.program-card:nth-child(8) { border-color: #9bf6ff; }
+.program-card:nth-child(9) { border-color: #ffb347; }
+.program-card:nth-child(10) { border-color: #ffd93d; }
+.program-card:nth-child(11) { border-color: #6bcf63; }
+
+
+/* matching badge colors */
+.program-card:nth-child(1) .badge { background: #ff8fab; }
+.program-card:nth-child(2) .badge { background: #ffb347; }
+.program-card:nth-child(3) .badge { background: #ffd93d; }
+.program-card:nth-child(4) .badge { background: #6bcf63; }
+.program-card:nth-child(5) .badge { background: #4d96ff; }
+.program-card:nth-child(6) .badge { background: #9b5de5; }
+.program-card:nth-child(7) .badge { background: #f15bb5; }
+.program-card:nth-child(8) .badge { background: #00bbf9; }
+.program-card:nth-child(9) .badge { background: #ffb347; }
+.program-card:nth-child(10) .badge { background: #ffd93d; }
+.program-card:nth-child(11) .badge { background: #6bcf63; }
 
 
 /* ==================================================
@@ -980,6 +1117,25 @@ RESPONSIVE
   .image-box img {
     max-width: 100%;
   }
+
+  
+ .features {
+    grid-template-columns: 1fr;
+  }
+
+  .program-card {
+    border-radius: 20px; /* nicer on mobile */
+    padding: 12px 14px;
+  }
+
+  .text h3 {
+    font-size: 14px;
+  }
+
+  .emoji {
+    font-size: 22px;
+  }
+
 
 
 

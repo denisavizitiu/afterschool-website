@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
 ========================= */
 
 const animatedElements = document.querySelectorAll(
-  '.program-card, .program-info, .image-box'
+  '.program-card, .program-info, .image-box, .info-features li, .info-list li, .info-section'
 );
 
 const observer = new IntersectionObserver(entries => {

@@ -435,6 +435,16 @@ FEATURES & CARDS
 }
 
 
+.timeline-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-radius: 999px;
+  padding: 14px 18px;
+}
+
+
+
 /* ==================================================
 PROGRAM BOX
 ================================================== */
@@ -611,6 +621,7 @@ PROGRAM BOX
   list-style: none;
   padding: 0;
   margin: 2rem 0 0;
+  text-align: center;
 }
 
 .info-list li {
@@ -622,6 +633,7 @@ PROGRAM BOX
   line-height: 1.6;
   margin-bottom: 1rem;
   color: #333;
+  text-align: center;
 }
 
 .info-list li::before {

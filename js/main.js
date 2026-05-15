@@ -81,20 +81,28 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch(err => console.error("Footer load error:", err));
   }
 
-  const cards = document.querySelectorAll('.program-card');
+ /* =========================
+   SCROLL ANIMATIONS
+========================= */
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-      }
-    });
-  }, {
-    threshold: 0.15
-  });
+const animatedElements = document.querySelectorAll(
+  '.program-card, .program-info, .image-box'
+);
 
-  cards.forEach(card => {
-    observer.observe(card);
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+  if (entry.isIntersecting) {
+  entry.target.classList.add('show');
+  observer.unobserve(entry.target); // animates only once ✅
+}
+
   });
+}, {
+  threshold: 0.15
+});
+
+animatedElements.forEach(el => {
+  observer.observe(el);
+});
 
 });

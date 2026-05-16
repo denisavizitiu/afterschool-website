@@ -1128,7 +1128,7 @@ COOKIE BANNER
   line-height: 1;
 }
 
-..cookie-banner .cookie-close:hover {
+.cookie-banner .cookie-close:hover {
   background: rgba(255, 255, 255, 0.1);
 }
 

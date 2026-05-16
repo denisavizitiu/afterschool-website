@@ -105,4 +105,50 @@ animatedElements.forEach(el => {
   observer.observe(el);
 });
 
+    /* =========================
+      GALLERY ZOOM (gallery-summer + gallery-grid)
+    ========================= */
+    // select both gallery types across pages so galerie.html images also work
+    const galleryImages = document.querySelectorAll('.gallery-summer img, .gallery-grid img');
+
+  if (galleryImages.length) {
+    galleryImages.forEach(img => {
+      img.addEventListener('click', event => {
+        galleryImages.forEach(otherImg => {
+          if (otherImg !== img) {
+            otherImg.classList.remove('zoomed');
+          }
+        });
+
+        const willZoom = !img.classList.contains('zoomed');
+        img.classList.toggle('zoomed', willZoom);
+        document.body.classList.toggle('zoom-active', willZoom);
+        event.stopPropagation();
+      });
+
+      // ensure keyboard accessibility
+      if (!img.hasAttribute('tabindex')) img.setAttribute('tabindex', '0');
+      img.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          img.click();
+        }
+      });
+    });
+
+    document.addEventListener('click', event => {
+      if (!event.target.closest('.gallery-summer') && !event.target.closest('.gallery-grid')) {
+        document.body.classList.remove('zoom-active');
+        galleryImages.forEach(img => img.classList.remove('zoomed'));
+      }
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        document.body.classList.remove('zoom-active');
+        galleryImages.forEach(img => img.classList.remove('zoomed'));
+      }
+    });
+  }
+
 });

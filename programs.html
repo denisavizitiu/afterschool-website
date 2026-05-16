@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="programs-page">
 
 <!-- ================= HEADER ================= -->
 <header id="header"></header>
@@ -204,12 +204,14 @@
             <p class="date">31 august – 4 septembrie</p>
           </div>
           </div>
+          </div>
+        </div>
         </section>
 
   <!-- PROGRAMS GALLERY -->
     <section class="program-gallery-section">
         <h2>Galerie Activități</h2>
-        <div class="gallery-grid">
+        <div class="gallery-summer">
       <img src="images/summer-school-s1.png" alt="Saptamana 1">
       <img src="images/summer-school-s2.png" alt="Saptamana 2">
       <img src="images/summer-school-s3.png" alt="Saptamana 3">
@@ -269,7 +271,7 @@
 <div id="footer"></div>
 
 <!-- ================= COOKIE BANNER ================= -->
-<div id="cookie-banner" class="cookie-banner">
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite">
   <p>
     Acest site folosește cookie‑uri pentru a îmbunătăți experiența utilizatorului.
   </p>
@@ -277,7 +279,7 @@
 </div>
 
 <!-- ================= GO UP BUTTON ================= -->
-<button id="goTopBtn" title="Mergi sus">↑</button>
+<button id="goTopBtn" title="Mergi sus" aria-label="Mergi sus">↑</button>
 
 <script src="js/main.js" defer></script>
 

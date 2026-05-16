@@ -42,7 +42,7 @@
   <div class="about-container">
     
     <div class="about-image">
-      <img src="images/about-3.jpg" alt="Centrul educațional Hristina EduCare">
+      <img src="images/about-3.jpg" alt="Centrul educațional Hristina EduCare" loading="lazy">
     </div>
 
     <!-- DESCRIERE -->
@@ -147,12 +147,16 @@
   <footer id="footer"></footer>
 
   <!-- ================= COOKIE BANNER ================= -->
-  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite">
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Informații cookie">
     <p>
-      Acest site folosește cookie‑uri pentru a îmbunătăți experiența utilizatorului.
+      Folosim cookie-uri pentru a face site-ul mai prietenos și mai ușor de folosit.
+      <a href="cookies.html">Află mai multe</a>
     </p>
-    <button id="accept-cookies" class="btn">Accept</button>
-  </div> 
+    <div class="cookie-actions">
+      <button id="accept-cookies" class="btn">Am înțeles</button>
+      <button id="close-cookies" class="btn cookie-close" aria-label="Închide notificarea cookie">×</button>
+    </div>
+  </div>
 
   <!-- ================= GO TO TOP BUTTON ================= -->
   <button id="goTopBtn" title="Mergi sus" aria-label="Mergi sus">↑</button>

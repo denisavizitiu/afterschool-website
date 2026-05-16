@@ -122,10 +122,10 @@
 
   <!-- PROGRAMS GALLERY -->
     <div class="gallery-grid">
-     <img src="images/program-1.jpg" alt="Program 1">
-      <img src="images/program-2.jpg" alt="Program 2">
-      <img src="images/program-3.jpg" alt="Program 3">
-      <img src="images/program-4.jpg" alt="Program 4">
+     <img src="images/program-1.jpg" alt="Program 1" loading="lazy">
+      <img src="images/program-2.jpg" alt="Program 2" loading="lazy">
+      <img src="images/program-3.jpg" alt="Program 3" loading="lazy">
+      <img src="images/program-4.jpg" alt="Program 4" loading="lazy">
     </div>
 
      <section class="section-purple">
@@ -150,11 +150,15 @@
 <div id="footer"></div>
 
 <!-- ================= COOKIE BANNER ================= -->
-<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite">
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Informații cookie">
   <p>
-    Acest site folosește cookie‑uri pentru a îmbunătăți experiența utilizatorului.
+    Folosim cookie-uri pentru a face site-ul mai prietenos și mai ușor de folosit.
+    <a href="cookies.html">Află mai multe</a>
   </p>
-  <button id="accept-cookies" class="btn">Accept</button>
+  <div class="cookie-actions">
+    <button id="accept-cookies" class="btn">Am înțeles</button>
+    <button id="close-cookies" class="btn cookie-close" aria-label="Închide notificarea cookie">×</button>
+  </div>
 </div>
 
 <!-- ================= GO UP BUTTON ================= -->

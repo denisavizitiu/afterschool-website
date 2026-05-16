@@ -5,16 +5,33 @@ document.addEventListener("DOMContentLoaded", () => {
   ========================= */
   const banner = document.getElementById("cookie-banner");
   const acceptBtn = document.getElementById("accept-cookies");
+  const closeBtn = document.getElementById("close-cookies");
 
-  if (banner && acceptBtn) {
+  const hideCookieBanner = () => {
+    if (banner) {
+      banner.style.display = "none";
+      localStorage.setItem("cookiesAccepted", "true");
+    }
+  };
+
+  if (banner) {
     if (localStorage.getItem("cookiesAccepted")) {
       banner.style.display = "none";
+    } else {
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          hideCookieBanner();
+        }
+      });
     }
+  }
 
-    acceptBtn.addEventListener("click", () => {
-      localStorage.setItem("cookiesAccepted", "true");
-      banner.style.display = "none";
-    });
+  if (banner && acceptBtn) {
+    acceptBtn.addEventListener("click", hideCookieBanner);
+  }
+
+  if (banner && closeBtn) {
+    closeBtn.addEventListener("click", hideCookieBanner);
   }
 
   /* =========================

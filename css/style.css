@@ -429,6 +429,25 @@ FEATURES & CARDS
   transform: translateY(-6px);
 }
 
+/* Page-scoped program-box for gradi.html */
+.gradi-page .program-box.program-box-wide {
+  max-width: 900px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-md);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.08),
+    0 0 0 1px rgba(255,255,255,0.6) inset;
+  transition: all 0.3s ease;
+}
+
+.gradi-page .program-box.program-box-wide:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.12);
+}
+
 .feature-card:hover {
   transform: translateY(-6px);
 }

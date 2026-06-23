@@ -129,17 +129,71 @@ animatedElements.forEach(el => {
     const galleryImages = document.querySelectorAll('.gallery-summer img, .gallery-grid img');
 
   if (galleryImages.length) {
+    const lightboxControls = document.createElement('div');
+    lightboxControls.className = 'lightbox-controls';
+    lightboxControls.innerHTML = `
+      <button class="lightbox-button prev" type="button" aria-label="Previous image">‹</button>
+      <button class="lightbox-button next" type="button" aria-label="Next image">›</button>
+    `;
+    document.body.appendChild(lightboxControls);
+
+    const prevButton = lightboxControls.querySelector('.prev');
+    const nextButton = lightboxControls.querySelector('.next');
+
+    let currentZoomedImage = null;
+    let currentGalleryGroup = [];
+    let currentIndex = -1;
+
+    const getGalleryGroup = img => {
+      const container = img.closest('.gallery-summer, .gallery-grid');
+      return container ? Array.from(container.querySelectorAll('img')) : [img];
+    };
+
+    const updateLightboxControls = () => {
+      if (!currentZoomedImage) return;
+      prevButton.disabled = currentIndex <= 0;
+      nextButton.disabled = currentIndex >= currentGalleryGroup.length - 1;
+    };
+
+    const closeZoom = () => {
+      document.body.classList.remove('zoom-active');
+      galleryImages.forEach(img => img.classList.remove('zoomed'));
+      currentZoomedImage = null;
+      currentGalleryGroup = [];
+      currentIndex = -1;
+      updateLightboxControls();
+    };
+
+    const showImageAt = index => {
+      if (index < 0 || index >= currentGalleryGroup.length) return;
+      if (currentZoomedImage) currentZoomedImage.classList.remove('zoomed');
+      currentZoomedImage = currentGalleryGroup[index];
+      currentZoomedImage.classList.add('zoomed');
+      currentIndex = index;
+      document.body.classList.add('zoom-active');
+      updateLightboxControls();
+    };
+
+    const openZoom = img => {
+      currentGalleryGroup = getGalleryGroup(img);
+      currentIndex = currentGalleryGroup.indexOf(img);
+      currentZoomedImage = img;
+      document.body.classList.add('zoom-active');
+      galleryImages.forEach(otherImg => otherImg.classList.remove('zoomed'));
+      img.classList.add('zoomed');
+      updateLightboxControls();
+    };
+
     galleryImages.forEach(img => {
       img.addEventListener('click', event => {
-        galleryImages.forEach(otherImg => {
-          if (otherImg !== img) {
-            otherImg.classList.remove('zoomed');
-          }
-        });
-
         const willZoom = !img.classList.contains('zoomed');
-        img.classList.toggle('zoomed', willZoom);
-        document.body.classList.toggle('zoom-active', willZoom);
+
+        if (willZoom) {
+          openZoom(img);
+        } else {
+          closeZoom();
+        }
+
         event.stopPropagation();
       });
 
@@ -153,17 +207,37 @@ animatedElements.forEach(el => {
       });
     });
 
+    prevButton.addEventListener('click', event => {
+      event.stopPropagation();
+      showImageAt(currentIndex - 1);
+    });
+
+    nextButton.addEventListener('click', event => {
+      event.stopPropagation();
+      showImageAt(currentIndex + 1);
+    });
+
     document.addEventListener('click', event => {
+      if (event.target.closest('.lightbox-controls')) return;
       if (!event.target.closest('.gallery-summer') && !event.target.closest('.gallery-grid')) {
-        document.body.classList.remove('zoom-active');
-        galleryImages.forEach(img => img.classList.remove('zoomed'));
+        closeZoom();
       }
     });
 
     document.addEventListener('keydown', event => {
       if (event.key === 'Escape') {
-        document.body.classList.remove('zoom-active');
-        galleryImages.forEach(img => img.classList.remove('zoomed'));
+        closeZoom();
+      }
+
+      if (!document.body.classList.contains('zoom-active')) return;
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        showImageAt(currentIndex - 1);
+      }
+
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        showImageAt(currentIndex + 1);
       }
     });
   }

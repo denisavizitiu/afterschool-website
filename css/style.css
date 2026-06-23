@@ -1001,6 +1001,48 @@ body.zoom-active::before {
   z-index: 9998;
 }
 
+.lightbox-controls {
+  position: fixed;
+  inset: 0;
+  display: none;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+body.zoom-active .lightbox-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.lightbox-button {
+  pointer-events: auto;
+  border: 0;
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  font-size: 28px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.lightbox-button:hover,
+.lightbox-button:focus {
+  background: rgba(0, 0, 0, 0.65);
+  transform: scale(1.05);
+}
+
+.lightbox-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
 .programs-page .program-gallery-section .gallery-summer img:hover:not(.zoomed) {
   transform: translateY(-2px);
 }

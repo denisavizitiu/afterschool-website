@@ -997,34 +997,98 @@ body.zoom-active::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.8);
   z-index: 9998;
 }
 
-.lightbox-controls {
+.lightbox-overlay {
   position: fixed;
   inset: 0;
   display: none;
-  pointer-events: none;
   z-index: 10000;
+  pointer-events: none;
 }
 
-body.zoom-active .lightbox-controls {
+.lightbox-overlay.active {
+  display: block;
+}
+
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  pointer-events: auto;
+}
+
+.lightbox-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+  width: 100%;
+  max-width: 1280px;
+}
+
+.lightbox-frame {
+  position: relative;
+  flex: 1;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: calc(100vh - 120px);
+  width: auto;
+  height: auto;
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  transform: scale(0.96);
+  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.45);
+  border-radius: 18px;
+}
+
+.lightbox-image.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.lightbox-caption {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: #fff;
+  font-size: 14px;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.8);
+}
+
+.lightbox-counter {
+  font-weight: 700;
+}
+
+.lightbox-description {
+  opacity: 0.9;
 }
 
 .lightbox-button {
   pointer-events: auto;
   border: 0;
-  background: rgba(0, 0, 0, 0.35);
+  background: rgba(255, 255, 255, 0.08);
   color: #fff;
-  width: 54px;
-  height: 54px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
-  font-size: 28px;
+  font-size: 32px;
   line-height: 1;
   display: grid;
   place-items: center;
@@ -1034,13 +1098,44 @@ body.zoom-active .lightbox-controls {
 
 .lightbox-button:hover,
 .lightbox-button:focus {
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(255, 255, 255, 0.18);
   transform: scale(1.05);
 }
 
+.lightbox-button.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10001;
+  width: 48px;
+  height: 48px;
+  font-size: 28px;
+}
+
 .lightbox-button:disabled {
-  opacity: 0.4;
+  opacity: 0.35;
   cursor: not-allowed;
+}
+
+@media (max-width: 840px) {
+  .lightbox-inner {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .lightbox-frame {
+    min-height: 240px;
+  }
+
+  .lightbox-button {
+    width: 48px;
+    height: 48px;
+    font-size: 28px;
+  }
+
+  .lightbox-caption {
+    flex-wrap: wrap;
+  }
 }
 
 .programs-page .program-gallery-section .gallery-summer img:hover:not(.zoomed) {

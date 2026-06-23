@@ -123,81 +123,99 @@ animatedElements.forEach(el => {
 });
 
     /* =========================
-      GALLERY ZOOM (gallery-summer + gallery-grid)
+      GALLERY LIGHTBOX (gallery-summer + gallery-grid)
     ========================= */
     // select both gallery types across pages so galerie.html images also work
     const galleryImages = document.querySelectorAll('.gallery-summer img, .gallery-grid img');
 
   if (galleryImages.length) {
-    const lightboxControls = document.createElement('div');
-    lightboxControls.className = 'lightbox-controls';
-    lightboxControls.innerHTML = `
-      <button class="lightbox-button prev" type="button" aria-label="Previous image">‹</button>
-      <button class="lightbox-button next" type="button" aria-label="Next image">›</button>
+    const lightboxOverlay = document.createElement('div');
+    lightboxOverlay.className = 'lightbox-overlay';
+    lightboxOverlay.innerHTML = `
+      <div class="lightbox-backdrop" role="dialog" aria-modal="true" aria-label="Image preview">
+        <button class="lightbox-button close" type="button" aria-label="Close preview">×</button>
+        <div class="lightbox-inner">
+          <button class="lightbox-button prev" type="button" aria-label="Previous image">‹</button>
+          <div class="lightbox-frame">
+            <img class="lightbox-image" src="" alt="" />
+            <div class="lightbox-caption" aria-live="polite">
+              <span class="lightbox-counter"></span>
+              <span class="lightbox-description"></span>
+            </div>
+          </div>
+          <button class="lightbox-button next" type="button" aria-label="Next image">›</button>
+        </div>
+      </div>
     `;
-    document.body.appendChild(lightboxControls);
+    document.body.appendChild(lightboxOverlay);
 
-    const prevButton = lightboxControls.querySelector('.prev');
-    const nextButton = lightboxControls.querySelector('.next');
+    const backdrop = lightboxOverlay.querySelector('.lightbox-backdrop');
+    const closeButton = lightboxOverlay.querySelector('.lightbox-button.close');
+    const prevButton = lightboxOverlay.querySelector('.lightbox-button.prev');
+    const nextButton = lightboxOverlay.querySelector('.lightbox-button.next');
+    const lightboxImage = lightboxOverlay.querySelector('.lightbox-image');
+    const lightboxCounter = lightboxOverlay.querySelector('.lightbox-counter');
+    const lightboxDescription = lightboxOverlay.querySelector('.lightbox-description');
 
-    let currentZoomedImage = null;
     let currentGalleryGroup = [];
     let currentIndex = -1;
+    let touchStartX = 0;
+    let touchEndX = 0;
 
     const getGalleryGroup = img => {
       const container = img.closest('.gallery-summer, .gallery-grid');
       return container ? Array.from(container.querySelectorAll('img')) : [img];
     };
 
-    const updateLightboxControls = () => {
-      if (!currentZoomedImage) return;
+    const getImageSrc = img => img.dataset.full || img.src;
+
+    const updateLightboxStatus = () => {
       prevButton.disabled = currentIndex <= 0;
       nextButton.disabled = currentIndex >= currentGalleryGroup.length - 1;
+      lightboxCounter.textContent = `${currentIndex + 1} / ${currentGalleryGroup.length}`;
+      lightboxDescription.textContent = currentGalleryGroup[currentIndex].alt || '';
     };
 
-    const closeZoom = () => {
+    const setLightboxImage = img => {
+      const src = getImageSrc(img);
+      lightboxImage.classList.remove('visible');
+      lightboxImage.addEventListener('load', () => {
+        lightboxImage.classList.add('visible');
+      }, { once: true });
+      lightboxImage.src = src;
+      lightboxImage.alt = img.alt || '';
+    };
+
+    const openLightbox = img => {
+      currentGalleryGroup = getGalleryGroup(img);
+      currentIndex = currentGalleryGroup.indexOf(img);
+      setLightboxImage(img);
+      updateLightboxStatus();
+      lightboxOverlay.classList.add('active');
+      document.body.classList.add('zoom-active');
+    };
+
+    const closeLightbox = () => {
+      lightboxOverlay.classList.remove('active');
       document.body.classList.remove('zoom-active');
-      galleryImages.forEach(img => img.classList.remove('zoomed'));
-      currentZoomedImage = null;
       currentGalleryGroup = [];
       currentIndex = -1;
-      updateLightboxControls();
+      updateLightboxStatus();
     };
 
     const showImageAt = index => {
       if (index < 0 || index >= currentGalleryGroup.length) return;
-      if (currentZoomedImage) currentZoomedImage.classList.remove('zoomed');
-      currentZoomedImage = currentGalleryGroup[index];
-      currentZoomedImage.classList.add('zoomed');
       currentIndex = index;
-      document.body.classList.add('zoom-active');
-      updateLightboxControls();
-    };
-
-    const openZoom = img => {
-      currentGalleryGroup = getGalleryGroup(img);
-      currentIndex = currentGalleryGroup.indexOf(img);
-      currentZoomedImage = img;
-      document.body.classList.add('zoom-active');
-      galleryImages.forEach(otherImg => otherImg.classList.remove('zoomed'));
-      img.classList.add('zoomed');
-      updateLightboxControls();
+      setLightboxImage(currentGalleryGroup[currentIndex]);
+      updateLightboxStatus();
     };
 
     galleryImages.forEach(img => {
       img.addEventListener('click', event => {
-        const willZoom = !img.classList.contains('zoomed');
-
-        if (willZoom) {
-          openZoom(img);
-        } else {
-          closeZoom();
-        }
-
+        openLightbox(img);
         event.stopPropagation();
       });
 
-      // ensure keyboard accessibility
       if (!img.hasAttribute('tabindex')) img.setAttribute('tabindex', '0');
       img.addEventListener('keydown', event => {
         if (event.key === 'Enter' || event.key === ' ') {
@@ -205,6 +223,11 @@ animatedElements.forEach(el => {
           img.click();
         }
       });
+    });
+
+    closeButton.addEventListener('click', event => {
+      event.stopPropagation();
+      closeLightbox();
     });
 
     prevButton.addEventListener('click', event => {
@@ -217,24 +240,39 @@ animatedElements.forEach(el => {
       showImageAt(currentIndex + 1);
     });
 
-    document.addEventListener('click', event => {
-      if (event.target.closest('.lightbox-controls')) return;
-      if (!event.target.closest('.gallery-summer') && !event.target.closest('.gallery-grid')) {
-        closeZoom();
+    backdrop.addEventListener('click', event => {
+      if (event.target === backdrop) {
+        closeLightbox();
+      }
+    });
+
+    lightboxOverlay.addEventListener('touchstart', event => {
+      touchStartX = event.changedTouches[0].screenX;
+    }, { passive: true });
+
+    lightboxOverlay.addEventListener('touchend', event => {
+      touchEndX = event.changedTouches[0].screenX;
+      const delta = touchEndX - touchStartX;
+      const minDistance = 40;
+      if (Math.abs(delta) > minDistance) {
+        if (delta > 0) {
+          showImageAt(currentIndex - 1);
+        } else {
+          showImageAt(currentIndex + 1);
+        }
       }
     });
 
     document.addEventListener('keydown', event => {
-      if (event.key === 'Escape') {
-        closeZoom();
-      }
-
       if (!document.body.classList.contains('zoom-active')) return;
+
+      if (event.key === 'Escape') {
+        closeLightbox();
+      }
       if (event.key === 'ArrowLeft') {
         event.preventDefault();
         showImageAt(currentIndex - 1);
       }
-
       if (event.key === 'ArrowRight') {
         event.preventDefault();
         showImageAt(currentIndex + 1);

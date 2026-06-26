@@ -70,21 +70,37 @@ document.addEventListener("DOMContentLoaded", () => {
         const navClose = header.querySelector(".nav-close");
 
         if (hamburger && navLinks) {
+          const closeMenu = () => {
+            navLinks.classList.remove("open");
+            document.body.classList.remove("menu-open");
+          };
+
+          const openMenu = () => {
+            navLinks.classList.add("open");
+            document.body.classList.add("menu-open");
+          };
+
           hamburger.addEventListener("click", () => {
-            navLinks.classList.toggle("open");
+            if (navLinks.classList.contains("open")) {
+              closeMenu();
+            } else {
+              openMenu();
+            }
           });
 
           if (navClose) {
-            navClose.addEventListener("click", () => {
-              navLinks.classList.remove("open");
-            });
+            navClose.addEventListener("click", closeMenu);
           }
 
           // Close menu when a link is clicked
           navLinks.querySelectorAll("a").forEach(link => {
-            link.addEventListener("click", () => {
-              navLinks.classList.remove("open");
-            });
+            link.addEventListener("click", closeMenu);
+          });
+
+          document.addEventListener("click", event => {
+            if (!navLinks.classList.contains("open")) return;
+            if (event.target.closest(".nav-links") || event.target.closest(".hamburger")) return;
+            closeMenu();
           });
         }
       })

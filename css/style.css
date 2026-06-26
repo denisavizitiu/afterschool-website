@@ -551,6 +551,20 @@ PROGRAM BOX
   text-align: center;
 }
 
+.program-box.program-box-highlight {
+  width: 100%;
+  max-width: 760px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 245, 215, 0.98));
+  border: 1px solid rgba(255, 233, 168, 0.8);
+}
+
+.program-box.program-box-highlight p {
+  margin: 0 0 20px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #2a2a2a;
+}
+
 .program-box p {
   margin: 20px 0;
 }
@@ -559,14 +573,12 @@ PROGRAM BOX
   display: inline-block;
   min-width: 110px;
   text-align: center;
-  
 }
 
 .program-box .btn {
   display: block;
   margin: 25px auto 0;
 }
-
 
 .icon-list {
   list-style: none;

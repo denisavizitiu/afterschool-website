@@ -1509,6 +1509,11 @@ RESPONSIVE
   margin-left: auto;
 }
 
+/* Hide the in-panel close button on wider screens (only show on mobile panel) */
+.nav-links .nav-close {
+  display: none;
+}
+
 /* Social icons */
 .nav-socials {
   display: flex;
@@ -1608,6 +1613,7 @@ RESPONSIVE
     color: #1f3d23;
     font-size: 32px;
     line-height: 1;
+    display: block;
     padding: 8px;
     cursor: pointer;
   }

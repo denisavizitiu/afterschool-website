@@ -67,11 +67,18 @@ document.addEventListener("DOMContentLoaded", () => {
         // ✅ NOW the elements exist
         const hamburger = header.querySelector(".hamburger");
         const navLinks = header.querySelector(".nav-links");
+        const navClose = header.querySelector(".nav-close");
 
         if (hamburger && navLinks) {
           hamburger.addEventListener("click", () => {
             navLinks.classList.toggle("open");
           });
+
+          if (navClose) {
+            navClose.addEventListener("click", () => {
+              navLinks.classList.remove("open");
+            });
+          }
 
           // Close menu when a link is clicked
           navLinks.querySelectorAll("a").forEach(link => {

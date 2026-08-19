@@ -1032,7 +1032,7 @@ GALLERY
   flex: 1;
   display: grid;
   grid-template-columns: repeat(2, minmax(200px, 1fr));
-  gap: var(--space-sm);
+  gap: 0;
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
@@ -1045,19 +1045,20 @@ GALLERY
 .gallery-grid img {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 100%;
-  aspect-ratio: 4 / 3;
-  height: 100%;
+  height: auto;
+  aspect-ratio: auto;
   object-fit: contain;
-  background: rgba(255, 255, 255, 0.35);
-  border-radius: var(--radius-md);
+  background: transparent;
+  border-radius: 0;
   display: block;
-  padding: 0.2rem;
+  margin: 0;
+  padding: 0;
 }
 
 .gallery-grid img:last-child:nth-child(odd) {
   grid-column: 1 / -1;
   justify-self: center;
-  max-width: min(65%, 520px);
+  max-width: 100%;
 }
 
 .gallery-grid img:hover {
@@ -1102,7 +1103,7 @@ GALLERY
 
 .programs-page .program-gallery-section .gallery-grid {
   display: grid;
-  gap: 18px;
+  gap: 0;
   grid-template-columns: repeat(2, minmax(260px, 1fr));
 }
 
@@ -1110,10 +1111,11 @@ GALLERY
   flex: 0 0 auto;
   width: clamp(132px, 16vw, 180px);
   height: clamp(104px, 12vw, 136px);
-  object-fit: cover;
-  border-radius: 12px;
-  border: 3px solid #fff;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.14);
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 0;
+  border: 0;
+  box-shadow: none;
   cursor: zoom-in;
   scroll-snap-align: start;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -1122,8 +1124,12 @@ GALLERY
 .programs-page .program-gallery-section .gallery-grid img {
   width: 100%;
   height: auto;
+  aspect-ratio: auto;
   object-fit: contain;
-  border-radius: 18px;
+  border-radius: 0;
+  display: block;
+  margin: 0;
+  padding: 0;
   cursor: zoom-in;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
@@ -1334,6 +1340,8 @@ body.zoom-active::before {
   .programs-page .program-gallery-section .gallery-summer img {
     width: 120px;
     height: 92px;
+    border-radius: 0;
+    border: 0;
   }
 }
 
@@ -1344,12 +1352,17 @@ body.zoom-active::before {
 
   .gallery-grid {
     grid-template-columns: 1fr;
+    gap: 0;
   }
 
   .gallery-grid img:last-child:nth-child(odd) {
     grid-column: auto;
     justify-self: stretch;
     max-width: 100%;
+  }
+
+  .programs-page .program-gallery-section .gallery-grid {
+    gap: 0;
   }
 
   .gradi-page .program-card {

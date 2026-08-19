@@ -149,7 +149,7 @@ animatedElements.forEach(el => {
       GALLERY LIGHTBOX (gallery-summer + gallery-grid)
     ========================= */
     // select both gallery types across pages so galerie.html images also work
-    const galleryImages = document.querySelectorAll('.gallery-summer img, .gallery-grid img');
+    const galleryImages = document.querySelectorAll('.gallery-summer img, .photo-wall-grid img');
 
   if (galleryImages.length) {
     const lightboxOverlay = document.createElement('div');
@@ -186,7 +186,7 @@ animatedElements.forEach(el => {
     let touchEndX = 0;
 
     const getGalleryGroup = img => {
-      const container = img.closest('.gallery-summer, .gallery-grid');
+      const container = img.closest('.gallery-summer, .photo-wall-grid');
       return container ? Array.from(container.querySelectorAll('img')) : [img];
     };
 

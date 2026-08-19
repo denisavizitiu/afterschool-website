@@ -201,7 +201,7 @@ animatedElements.forEach(el => {
 
     const setLightboxImage = img => {
       const src = getImageSrc(img);
-      lightboxImage.classList.remove('visible');
+      lightboxImage.classList.remove('visible', 'zoomed-in');
       lightboxImage.addEventListener('load', () => {
         lightboxImage.classList.add('visible');
       }, { once: true });
@@ -209,7 +209,22 @@ animatedElements.forEach(el => {
       lightboxImage.alt = img.alt || '';
     };
 
+    const toggleLightboxZoom = () => {
+      lightboxImage.classList.toggle('zoomed-in');
+    };
+
+    const adjustLightboxZoom = delta => {
+      const currentScale = lightboxImage.classList.contains('zoomed-in') ? 1.3 : 1;
+      const nextScale = Math.min(2.3, Math.max(1, currentScale + delta));
+
+      lightboxImage.classList.toggle('zoomed-in', nextScale > 1.1);
+      lightboxImage.style.transform = `scale(${nextScale})`;
+      lightboxImage.classList.add('visible');
+    };
+
     const openLightbox = img => {
+      lightboxImage.style.transform = 'scale(1)';
+      lightboxImage.classList.remove('zoomed-in');
       currentGalleryGroup = getGalleryGroup(img);
       currentIndex = currentGalleryGroup.indexOf(img);
       setLightboxImage(img);
@@ -268,6 +283,16 @@ animatedElements.forEach(el => {
         closeLightbox();
       }
     });
+
+    lightboxImage.addEventListener('dblclick', () => {
+      toggleLightboxZoom();
+    });
+
+    lightboxOverlay.addEventListener('wheel', event => {
+      event.preventDefault();
+      const direction = event.deltaY > 0 ? -0.15 : 0.15;
+      adjustLightboxZoom(direction);
+    }, { passive: false });
 
     lightboxOverlay.addEventListener('touchstart', event => {
       touchStartX = event.changedTouches[0].screenX;
